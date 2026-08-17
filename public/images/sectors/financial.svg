@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Financial services office and operations environment">
+  <defs>
+    <linearGradient id="fibg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#120A24"/>
+      <stop offset="100%" stop-color="#1E1040"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#fibg)"/>
+  <rect x="70" y="80" width="660" height="290" rx="20" fill="#1A1230" opacity="0.85"/>
+  <rect x="100" y="110" width="280" height="180" rx="14" fill="#2A1D52" opacity="0.9"/>
+  <polyline points="120,250 160,210 200,225 240,170 280,185 320,140 360,155" fill="none" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="250" width="240" height="4" fill="#8B5CF6" opacity="0.35"/>
+  <rect x="420" y="120" width="280" height="24" rx="12" fill="#FFFFFF" opacity="0.1"/>
+  <rect x="420" y="165" width="220" height="16" rx="8" fill="#FFFFFF" opacity="0.07"/>
+  <rect x="420" y="200" width="250" height="16" rx="8" fill="#FFFFFF" opacity="0.07"/>
+  <rect x="420" y="235" width="180" height="16" rx="8" fill="#FFFFFF" opacity="0.07"/>
+  <rect x="420" y="280" width="120" height="44" rx="10" fill="#8B5CF6" opacity="0.45"/>
+  <rect x="560" y="280" width="120" height="44" rx="10" fill="#14B8A6" opacity="0.3"/>
+  <circle cx="650" cy="130" r="36" fill="#8B5CF6" opacity="0.2"/>
+  <path d="M635 130h30M650 115v30" stroke="#C4B5FD" stroke-width="3" stroke-linecap="round"/>
+</svg>
