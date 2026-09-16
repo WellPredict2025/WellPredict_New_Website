@@ -12,7 +12,7 @@ import CTAContact from '../sections/CTAContact';
 
 export default function Home() {
   return (
-    <main>
+    <div>
       <Hero />
       <ProofBar />
       <Problem />
@@ -24,6 +24,6 @@ export default function Home() {
       <PrivacyArchitecture />
       <PlatformDashboard />
       <CTAContact />
-    </main>
+    </div>
   );
 }

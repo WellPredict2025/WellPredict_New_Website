@@ -1,5 +1,5 @@
 export const contactEndpoint =
-  import.meta.env.VITE_CONTACT_API_URL || '/send-contact.php';
+  import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
 
 export type ContactEnquiryType = 'contact' | 'pilot' | 'careers' | 'newsletter';
 
@@ -30,7 +30,7 @@ type ContactResponse = {
   error?: string;
 };
 
-/** POST JSON to the IONOS PHP contact endpoint. Never uses GET or URL query params. */
+/** POST JSON to the contact API. Never uses GET or URL query params. */
 export async function submitContactForm(data: ContactFormData): Promise<ContactResponse> {
   if (data.company_website) {
     return { ok: true, success: true };
@@ -57,6 +57,10 @@ export async function submitContactForm(data: ContactFormData): Promise<ContactR
   }
 
   if (!response.ok) {
+    throw new Error(result.error || result.message || CONTACT_FORM_ERROR);
+  }
+
+  if (result.ok !== true && result.success !== true) {
     throw new Error(result.error || result.message || CONTACT_FORM_ERROR);
   }
 

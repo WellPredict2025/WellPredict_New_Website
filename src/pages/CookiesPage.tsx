@@ -6,7 +6,7 @@ import { resetCookieConsent } from '../lib/cookieConsent';
 
 const COOKIES = [
   { name: 'session', purpose: 'Maintains secure website session state', type: 'Essential', duration: 'Session' },
-  { name: 'wellpredict_cookie_consent', purpose: 'Stores your cookie preference choice', type: 'Preference', duration: '1 year' },
+  { name: 'wellpredict_cookie_consent', purpose: 'Stores your cookie preference choice in local storage (not a cookie)', type: 'Preference', duration: 'Until cleared / no automatic expiry' },
   { name: 'analytics', purpose: 'Helps us understand website usage when enabled', type: 'Analytics', duration: '2 years' },
 ];
 

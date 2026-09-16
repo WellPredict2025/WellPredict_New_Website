@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
 import PageHeroVisual, { type PageHeroVisualType } from './PageHeroVisual';
+import HeroBackgroundVideo from './HeroBackgroundVideo';
 import { fadeLeft, fadeRight, fadeUp, motionTransition, staggerContainer } from '../lib/motion';
 
 interface PageHeroProps {
@@ -62,25 +63,19 @@ export default function PageHero({
       style={{
         paddingTop: compact ? 120 : 140,
         paddingBottom: compact ? 72 : 96,
-        background: 'linear-gradient(135deg, #0B1F33 0%, #12324A 52%, #0B1F33 100%)',
+        background: '#0B1F33',
       }}
     >
+      <div className="hero-bg-video-wrap page-hero-video-wrap">
+        <HeroBackgroundVideo />
+      </div>
+      <div className="page-hero-video-scrim" aria-hidden="true" />
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none page-hero-video-veil"
         style={{
-          opacity: 0.25,
+          opacity: 0.35,
           backgroundImage:
-            'radial-gradient(circle at 15% 25%, rgba(20,184,166,0.2) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(56,189,248,0.12) 0%, transparent 42%)',
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          opacity: 0.04,
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
+            'radial-gradient(circle at 15% 25%, rgba(20,184,166,0.22) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(56,189,248,0.14) 0%, transparent 42%)',
         }}
         aria-hidden="true"
       />
@@ -90,7 +85,6 @@ export default function PageHero({
         style={{
           paddingTop: 0,
           paddingBottom: 0,
-          minHeight: heroVisual ? undefined : undefined,
         }}
         initial="hidden"
         animate="visible"

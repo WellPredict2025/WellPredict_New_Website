@@ -280,7 +280,7 @@ function HeroDashboard() {
 export default function Hero() {
   return (
     <section id="hero" className="relative w-full overflow-hidden" style={{ minHeight: '100vh', paddingTop: 120 }}>
-      <div className="hero-bg-video-wrap" aria-hidden="true">
+      <div className="hero-bg-video-wrap">
         <HeroBackgroundVideo />
       </div>
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(11,31,51,0.88) 0%, rgba(18,50,74,0.72) 50%, rgba(11,31,51,0.9) 100%)', zIndex: 2 }} />

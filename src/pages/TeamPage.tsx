@@ -6,11 +6,10 @@ import ScrollReveal from '../components/ScrollReveal';
 const TEAM = [
   {
     name: 'Shreeraj Hatipkar',
-    role: 'Founder & Product Lead',
+    role: 'Founder & CEO',
     initials: 'SH',
     bio: [
-      'Shreeraj founded WellPredict after seeing how difficult it is for regulated organisations to evidence what was happening before an issue became visible. Policies, reports and dashboards exist, but the link between operating conditions, management action and follow-up evidence is often still built manually.',
-      'He leads WellPredict\'s product direction, sector positioning and governance evidence model. His background spans HR operations, compliance documentation, workforce data, frontline operations and computer science, giving him a practical view of how regulated teams work and where existing systems leave evidence gaps.',
+      'Shreeraj leads product vision and commercial strategy. With experience across workforce operations, compliance and technology, he founded WellPredict to help organisations spot operational risk early and prove they acted on it.',
     ],
   },
   {
@@ -18,8 +17,15 @@ const TEAM = [
     role: 'Head of Engineering',
     initials: 'ZU',
     bio: [
-      'Zia supports the technical development of WellPredict, helping turn the product vision into a secure and scalable platform. His work focuses on the engineering foundations behind the Governance Evidence Engine, including privacy controls, audit trails, evidence generation and system reliability.',
-      'He brings the technical oversight needed to move WellPredict from prototype to pilot-ready infrastructure, with a focus on stability, data integrity and deployment quality for regulated-sector customers.',
+      "Zia leads WellPredict's engineering, turning the product architecture into a secure, scalable platform. He oversees privacy controls, audit trails, data integrity and deployment, taking the platform from pilots to enterprise-ready infrastructure.",
+    ],
+  },
+  {
+    name: 'Muhammad Ammar',
+    role: 'Software Engineer',
+    initials: 'MA',
+    bio: [
+      "Muhammad builds WellPredict's core product features, including workflows, APIs, databases and access controls. He works across React, Next.js, Node.js, TypeScript, PostgreSQL and AWS to deliver reliable, production-ready functionality.",
     ],
   },
 ];
@@ -47,7 +53,7 @@ export default function TeamPage() {
         <div className="wp-container--narrow">
           <ScrollReveal direction="up">
             <p className="page-intro-copy">
-              WellPredict is led by its founders and supported by specialist product, engineering, and governance input as the platform develops.
+              WellPredict is led by a focused product and engineering team building governance evidence software for regulated organisations.
             </p>
           </ScrollReveal>
         </div>
@@ -85,13 +91,18 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <section className="section-padding wp-section" style={{ background: '#fff' }}>
-        <div className="wp-container--narrow">
-          <SectionHeader title="What guides us" subtitle="Principles that shape how we build and deliver WellPredict." />
+      <section className="section-padding wp-section team-page__guides" style={{ background: '#fff' }}>
+        <div className="team-page__guides-inner">
+          <SectionHeader
+            title="What guides us"
+            subtitle="Principles that shape how we build and deliver WellPredict."
+          />
           <ScrollReveal direction="up">
-            <ul style={{ margin: 0, paddingLeft: 20, fontSize: 15, color: '#475569', lineHeight: 1.9 }}>
+            <ul className="team-page__guides-list">
               {GUIDES_US.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="team-page__guides-item">
+                  {item}
+                </li>
               ))}
             </ul>
           </ScrollReveal>

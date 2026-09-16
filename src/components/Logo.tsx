@@ -25,8 +25,11 @@ export default function Logo({ size = 'nav', showWordmark = true, wordmarkColor 
         style={{ height: iconHeight, width: 'auto', display: 'block', flexShrink: 0 }}
       />
       {showWordmark && (
-        <span className={isFooter ? 'footer-brand-text' : 'nav-brand-text'} style={{ color: wordmarkColor }}>
-          WellPredict
+        <span className={isFooter ? 'footer-brand-text' : 'nav-brand-text'}>
+          <span className="brand-wordmark__well" style={{ color: wordmarkColor }}>
+            Well
+          </span>
+          <span className="brand-wordmark__predict">Predict</span>
         </span>
       )}
     </span>

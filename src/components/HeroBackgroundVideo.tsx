@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const MOBILE_QUERY = '(max-width: 768px)';
 
@@ -11,49 +12,119 @@ function HeroVideo({
   poster: string;
   sources: { src: string; type: string }[];
 }) {
-  const ref = useRef<HTMLVideoElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const userPausedRef = useRef(false);
+  const reducedMotionRef = useRef(false);
+  const [playing, setPlaying] = useState(false);
+  const [showControl, setShowControl] = useState(false);
+  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
-    const video = ref.current;
-    if (!video) return;
+    const video = videoRef.current;
+    const root = rootRef.current;
+    if (!video || !root) return;
+
+    const section = root.closest('section');
+    setPortalTarget(section instanceof HTMLElement ? section : null);
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    reducedMotionRef.current = reducedMotion;
+    setShowControl(!reducedMotion);
+
     if (reducedMotion) {
       video.pause();
+      setPlaying(false);
       return;
     }
 
-    const startPlayback = () => {
-      video.play().catch(() => {});
+    const syncPlaying = () => setPlaying(!video.paused);
+
+    const tryPlay = () => {
+      if (userPausedRef.current || reducedMotionRef.current) return;
+      video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
     };
 
     if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
-      startPlayback();
+      tryPlay();
     } else {
-      video.addEventListener('canplay', startPlayback, { once: true });
+      video.addEventListener('canplay', tryPlay, { once: true });
     }
 
+    video.addEventListener('play', syncPlaying);
+    video.addEventListener('pause', syncPlaying);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) {
+          video.pause();
+          return;
+        }
+        if (!userPausedRef.current && !reducedMotionRef.current) {
+          tryPlay();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(root);
+
     return () => {
-      video.removeEventListener('canplay', startPlayback);
+      video.removeEventListener('canplay', tryPlay);
+      video.removeEventListener('play', syncPlaying);
+      video.removeEventListener('pause', syncPlaying);
+      observer.disconnect();
     };
   }, []);
 
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video || reducedMotionRef.current) return;
+
+    if (video.paused) {
+      userPausedRef.current = false;
+      video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    } else {
+      userPausedRef.current = true;
+      video.pause();
+      setPlaying(false);
+    }
+  };
+
+  const control =
+    showControl && portalTarget
+      ? createPortal(
+          <button
+            type="button"
+            className="hero-video-toggle"
+            onClick={togglePlayback}
+            aria-pressed={!playing}
+            aria-label={playing ? 'Pause background video' : 'Play background video'}
+          >
+            {playing ? 'Pause video' : 'Play video'}
+          </button>,
+          portalTarget,
+        )
+      : null;
+
   return (
-    <video
-      ref={ref}
-      className={className}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      poster={poster}
-      aria-hidden="true"
-    >
-      {sources.map((source) => (
-        <source key={source.src} src={source.src} type={source.type} />
-      ))}
-    </video>
+    <div ref={rootRef} className="hero-video-root">
+      <video
+        ref={videoRef}
+        className={className}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={poster}
+        aria-hidden="true"
+      >
+        {sources.map((source) => (
+          <source key={source.src} src={source.src} type={source.type} />
+        ))}
+      </video>
+      {control}
+    </div>
   );
 }
 

@@ -233,7 +233,7 @@
     justify-content: center;
     gap: 8px;
     padding: 12px 28px;
-    background-color: var(--primary-accent);
+    background-color: #0F766E;
     color: #fff;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
@@ -243,13 +243,13 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     text-decoration: none;
-    box-shadow: 0 1px 2px rgba(20, 184, 166, 0.12);
+    box-shadow: 0 1px 2px rgba(15, 118, 110, 0.12);
   }
 
   .btn-primary:hover {
-    background-color: #0D9488;
+    background-color: #115E59;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(20, 184, 166, 0.28);
+    box-shadow: 0 4px 14px rgba(15, 118, 110, 0.28);
   }
 
   .btn-secondary {
@@ -784,15 +784,15 @@
     font-weight: 600;
     text-decoration: none;
     color: #fff;
-    background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
-    box-shadow: 0 2px 10px rgba(20, 184, 166, 0.18);
+    background: linear-gradient(135deg, #0F766E 0%, #115E59 100%);
+    box-shadow: 0 2px 10px rgba(15, 118, 110, 0.18);
     transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
     white-space: nowrap;
   }
 
   .footer-btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(20, 184, 166, 0.26);
+    box-shadow: 0 4px 16px rgba(15, 118, 110, 0.26);
     filter: brightness(1.04);
   }
 
@@ -4441,7 +4441,7 @@
     justify-content: center;
     gap: 8px;
     padding: 12px 28px;
-    background-color: var(--primary-accent);
+    background-color: #0F766E;
     color: #fff;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
@@ -4451,13 +4451,13 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
     text-decoration: none;
-    box-shadow: 0 1px 2px rgba(20, 184, 166, 0.12);
+    box-shadow: 0 1px 2px rgba(15, 118, 110, 0.12);
   }
 
   .btn-primary:hover {
-    background-color: #0D9488;
+    background-color: #115E59;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(20, 184, 166, 0.28);
+    box-shadow: 0 4px 14px rgba(15, 118, 110, 0.28);
   }
 
   .btn-secondary {
@@ -4992,15 +4992,15 @@
     font-weight: 600;
     text-decoration: none;
     color: #fff;
-    background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
-    box-shadow: 0 2px 10px rgba(20, 184, 166, 0.18);
+    background: linear-gradient(135deg, #0F766E 0%, #115E59 100%);
+    box-shadow: 0 2px 10px rgba(15, 118, 110, 0.18);
     transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
     white-space: nowrap;
   }
 
   .footer-btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(20, 184, 166, 0.26);
+    box-shadow: 0 4px 16px rgba(15, 118, 110, 0.26);
     filter: brightness(1.04);
   }
 
@@ -6763,6 +6763,10 @@
     white-space: nowrap;
   }
 
+  .brand-wordmark__predict {
+    color: #14B8A6;
+  }
+
   .footer-brand {
     gap: 5px;
   }
@@ -6788,6 +6792,12 @@
   .pilot-form__field,
   .form-grid-2 {
     overflow: visible;
+  }
+
+  .contact-form input:focus-visible,
+  .contact-form textarea:focus-visible {
+    outline: 3px solid #0F766E;
+    outline-offset: 3px;
   }
 
   .sector-select {
@@ -7145,9 +7155,9 @@
 
   .team-page__leadership-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
-    max-width: 1120px;
+    max-width: 1200px;
     margin: 0 auto;
     align-items: stretch;
   }
@@ -7161,11 +7171,51 @@
     height: 100%;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     .team-page__leadership-grid {
       grid-template-columns: 1fr;
       gap: 20px;
+      max-width: 640px;
     }
+  }
+
+  .team-page__guides-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-inline: clamp(20px, 4vw, 40px);
+  }
+
+  .team-page__guides .section-header-center {
+    margin-bottom: 36px;
+  }
+
+  .team-page__guides-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .team-page__guides-item {
+    position: relative;
+    padding-left: 28px;
+    font-size: clamp(15px, 1.5vw, 17px);
+    font-weight: 500;
+    color: #475569;
+    line-height: 1.65;
+  }
+
+  .team-page__guides-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #14B8A6;
   }
 
   .profile-card--row {
@@ -9990,7 +10040,69 @@ body.mobile-nav-open {
     animation: none !important;
   }
 
+  .hero-video-toggle {
+    display: none !important;
+  }
+
   .hero-bg-video-wrap {
     background: url('/images/hero-poster.svg') center / cover no-repeat;
   }
+}
+
+/* Page heroes share the homepage background video */
+.page-hero-section .page-hero-video-wrap {
+  z-index: 0;
+}
+
+.hero-video-root {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-video-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 15;
+  pointer-events: auto;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(6, 17, 30, 0.78);
+  color: #E6F7F5;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.hero-video-toggle:hover {
+  background: rgba(15, 118, 110, 0.85);
+  border-color: rgba(94, 234, 212, 0.45);
+  color: #fff;
+}
+
+.hero-video-toggle:focus-visible {
+  outline: 3px solid #0F766E;
+  outline-offset: 3px;
+}
+
+.page-hero-video-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 31, 51, 0.78) 0%,
+    rgba(18, 50, 74, 0.62) 48%,
+    rgba(11, 31, 51, 0.82) 100%
+  );
+}
+
+.page-hero-video-veil {
+  z-index: 2;
 }
