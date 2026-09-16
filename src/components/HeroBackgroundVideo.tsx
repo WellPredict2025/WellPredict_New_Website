@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 const MOBILE_QUERY = '(max-width: 768px)';
+const PLAYBACK_RATE = 0.8;
 
 function HeroVideo({
   className,
@@ -32,16 +33,23 @@ function HeroVideo({
     reducedMotionRef.current = reducedMotion;
     setShowControl(!reducedMotion);
 
+    video.playbackRate = PLAYBACK_RATE;
+    video.defaultPlaybackRate = PLAYBACK_RATE;
+
     if (reducedMotion) {
       video.pause();
       setPlaying(false);
       return;
     }
 
-    const syncPlaying = () => setPlaying(!video.paused);
+    const syncPlaying = () => {
+      video.playbackRate = PLAYBACK_RATE;
+      setPlaying(!video.paused);
+    };
 
     const tryPlay = () => {
       if (userPausedRef.current || reducedMotionRef.current) return;
+      video.playbackRate = PLAYBACK_RATE;
       video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
     };
 
@@ -82,6 +90,7 @@ function HeroVideo({
 
     if (video.paused) {
       userPausedRef.current = false;
+      video.playbackRate = PLAYBACK_RATE;
       video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
     } else {
       userPausedRef.current = true;
@@ -163,8 +172,8 @@ export default function HeroBackgroundVideo() {
         className="hero-bg-video hero-video hero-video--mobile"
         poster="/images/hero-poster-mobile.webp"
         sources={[
-          { src: '/videos/hero-bg-mobile.webm', type: 'video/webm' },
           { src: '/videos/hero-bg-mobile.mp4', type: 'video/mp4' },
+          { src: '/videos/hero-bg-mobile.webm', type: 'video/webm' },
         ]}
       />
     );
@@ -175,9 +184,8 @@ export default function HeroBackgroundVideo() {
       className="hero-bg-video hero-video hero-video--desktop"
       poster="/images/hero-poster.webp"
       sources={[
-        { src: '/videos/hero-bg.webm', type: 'video/webm' },
-        { src: '/videos/hero-bg-lite.mp4', type: 'video/mp4' },
         { src: '/videos/hero-bg.mp4', type: 'video/mp4' },
+        { src: '/videos/hero-bg.webm', type: 'video/webm' },
       ]}
     />
   );
