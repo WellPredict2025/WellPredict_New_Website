@@ -7259,7 +7259,16 @@
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+  }
+
+  .faq-browse-heading {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: #0F172A;
+    text-align: center;
+    margin: 0 0 16px;
   }
 
   .faq-tab {
@@ -7420,6 +7429,15 @@
     line-height: 1.65;
     color: #475569;
     text-align: center;
+  }
+
+  .contact-options-heading {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: 400;
+    color: #0F172A;
+    text-align: center;
+    margin: 0 0 20px;
   }
 
   .contact-options-grid {
@@ -9507,14 +9525,14 @@ body.mobile-nav-open {
 }
 
 .cookie-consent__button--primary {
-  background: #14B8A6;
+  background: #0F766E;
   color: #FFFFFF;
-  border: 1px solid #14B8A6;
+  border: 1px solid #0F766E;
 }
 
 .cookie-consent__button--primary:hover {
-  background: #0D9488;
-  border-color: #0D9488;
+  background: #115E59;
+  border-color: #115E59;
 }
 
 .cookie-consent__button--secondary {

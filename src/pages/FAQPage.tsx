@@ -71,6 +71,8 @@ export default function FAQPage() {
             ))}
           </div>
 
+          <h2 className="faq-browse-heading">Browse by topic</h2>
+
           <FAQAccordion
             category={activeCategory}
             items={

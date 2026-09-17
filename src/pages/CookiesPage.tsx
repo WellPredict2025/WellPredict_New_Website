@@ -44,7 +44,7 @@ export default function CookiesPage() {
       <LegalLayout
         showCounselBanner={false}
         documentInfo={[
-          { label: 'Last updated', value: '7 June 2026' },
+          { label: 'Last updated', value: '16 September 2026' },
           { label: 'Applies to', value: 'WellPredict website' },
           {
             label: 'Contact',
@@ -72,7 +72,7 @@ export default function CookiesPage() {
               <div className="feature-grid feature-grid--3">
                 {CATEGORIES.map((cat) => (
                   <div key={cat.title} className="wp-card feature-grid__card" style={{ borderTop: `3px solid ${cat.color}` }}>
-                    <h4 className="feature-grid__title">{cat.title}</h4>
+                    <h3 className="feature-grid__title">{cat.title}</h3>
                     <p className="feature-grid__desc">{cat.desc}</p>
                   </div>
                 ))}

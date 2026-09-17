@@ -55,6 +55,7 @@ export default function ContactPage() {
             <p className="contact-intro">{CONTACT_INTRO}</p>
             <p className="contact-routing-note">{CONTACT_ROUTING_NOTE}</p>
           </ScrollReveal>
+          <h2 className="contact-options-heading">Ways to get in touch</h2>
           <div className="contact-options-grid">
             {CONTACT_CATEGORIES.map((category, index) => {
               const Icon = CATEGORY_ICONS[category.id];

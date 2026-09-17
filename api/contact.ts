@@ -3,10 +3,16 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 const ALLOWED_ORIGINS = [
   'https://www.wellpredict.co.uk',
   'https://wellpredict.co.uk',
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:5173',
 ];
 
 const ALLOWED_TYPES = new Set(['contact', 'pilot', 'careers', 'newsletter']);
 const CONTACT_TO = 'hello@wellpredict.co.uk';
+const FALLBACK_ERROR =
+  'Failed to send message. Please email hello@wellpredict.co.uk directly.';
 
 function cleanText(value: unknown, maxLength = 2000): string {
   return String(value ?? '')
@@ -130,6 +136,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
+    console.error('contact_missing_resend_api_key');
     return res.status(503).json({
       error:
         'Contact form is temporarily unavailable. Please email hello@wellpredict.co.uk directly.',
@@ -157,15 +164,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     if (!mailRes.ok) {
-      return res.status(500).json({
-        error: 'Failed to send message. Please email hello@wellpredict.co.uk directly.',
+      const providerBody = await mailRes.text().catch(() => '');
+      console.error('contact_provider_failure', {
+        status: mailRes.status,
+        body: providerBody.slice(0, 500),
       });
+      return res.status(502).json({ error: FALLBACK_ERROR });
     }
 
     return res.status(200).json({ ok: true, success: true });
-  } catch {
-    return res.status(500).json({
-      error: 'Failed to send message. Please email hello@wellpredict.co.uk directly.',
-    });
+  } catch (err) {
+    console.error('contact_provider_exception', err);
+    return res.status(502).json({ error: FALLBACK_ERROR });
   }
 }
