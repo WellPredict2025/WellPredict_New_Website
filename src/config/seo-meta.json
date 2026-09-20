@@ -1,0 +1,94 @@
+{
+  "/": {
+    "title": "WellPredict · Governance evidence for regulated organisations",
+    "description": "WellPredict helps regulated organisations convert team-level operating signals, interventions, and outcomes into privacy-safe, audit-ready Evidence Packs."
+  },
+  "/how-it-works": {
+    "title": "How It Works · WellPredict",
+    "description": "See how WellPredict connects team signals, management actions, and outcomes into review-ready Evidence Packs."
+  },
+  "/evidence-pack": {
+    "title": "Evidence Pack · WellPredict",
+    "description": "Twelve structured sections that turn scattered governance activity into one review-ready Evidence Pack."
+  },
+  "/privacy": {
+    "title": "Privacy · WellPredict",
+    "description": "Privacy-gated, team-level evidence design with threshold checks before records are shown."
+  },
+  "/security": {
+    "title": "Security · WellPredict",
+    "description": "Security architecture designed for controlled access, clear roles, and traceable evidence activity."
+  },
+  "/pricing": {
+    "title": "Pricing · WellPredict",
+    "description": "Pilot, organisation, and enterprise pathways for governed evidence cycles. Pricing on request."
+  },
+  "/faq": {
+    "title": "FAQ · WellPredict",
+    "description": "Answers about governance evidence, privacy, sectors, pricing, and how WellPredict works."
+  },
+  "/contact": {
+    "title": "Contact · WellPredict",
+    "description": "Contact WellPredict about pilots, product walkthroughs, and organisation deployments."
+  },
+  "/pilot": {
+    "title": "Request a Pilot · WellPredict",
+    "description": "Apply for a four-week pilot with one team and compile your first Evidence Pack."
+  },
+  "/about": {
+    "title": "About · WellPredict",
+    "description": "WellPredict builds governance evidence software for regulated UK organisations."
+  },
+  "/team": {
+    "title": "Our Team · WellPredict",
+    "description": "Meet the team building WellPredict for regulated organisations."
+  },
+  "/careers": {
+    "title": "Careers · WellPredict",
+    "description": "Careers at WellPredict. Join a focused team building governance evidence software."
+  },
+  "/sectors": {
+    "title": "Sectors · WellPredict",
+    "description": "Sector configuration for healthcare, food, financial services, legal, education, and corporate governance."
+  },
+  "/sectors/healthcare": {
+    "title": "Healthcare · WellPredict",
+    "description": "Governance evidence for healthcare teams preparing for CQC and NHS-style review conversations."
+  },
+  "/sectors/food": {
+    "title": "Food Manufacturing · WellPredict",
+    "description": "Governance evidence for food production teams aligned with FSA, BRCGS, and HACCP oversight."
+  },
+  "/sectors/financial": {
+    "title": "Financial Services · WellPredict",
+    "description": "Evidence records for financial services operational oversight and management review."
+  },
+  "/sectors/legal": {
+    "title": "Legal Services · WellPredict",
+    "description": "Evidence records for legal practice workload governance and professional oversight."
+  },
+  "/sectors/education": {
+    "title": "Education · WellPredict",
+    "description": "Evidence records for education leadership, teaching, and support teams."
+  },
+  "/sectors/corporate": {
+    "title": "Corporate Governance · WellPredict",
+    "description": "Department-level governance evidence for internal review and board reporting."
+  },
+  "/privacy-policy": {
+    "title": "Privacy Policy · WellPredict",
+    "description": "How WellPredict collects, uses, stores, and protects information."
+  },
+  "/terms": {
+    "title": "Terms of Service · WellPredict",
+    "description": "Terms governing use of the WellPredict website and related services."
+  },
+  "/cookies": {
+    "title": "Cookie Policy · WellPredict",
+    "description": "How cookies and similar technologies are used on the WellPredict website."
+  },
+  "/data-processing": {
+    "title": "Data Processing · WellPredict",
+    "description": "Overview of data processing roles, categories, retention, and controls."
+  }
+}

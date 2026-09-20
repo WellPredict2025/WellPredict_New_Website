@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Healthcare team in clinical setting">
+  <defs>
+    <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1F33"/>
+      <stop offset="100%" stop-color="#12324A"/>
+    </linearGradient>
+    <linearGradient id="haccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1B6BB0"/>
+      <stop offset="100%" stop-color="#0E4A7A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#hbg)"/>
+  <rect x="0" y="300" width="800" height="150" fill="#0A1828"/>
+  <rect x="80" y="90" width="280" height="220" rx="18" fill="url(#haccent)" opacity="0.35"/>
+  <rect x="120" y="130" width="200" height="140" rx="12" fill="#E8F4FC" opacity="0.12"/>
+  <circle cx="220" cy="200" r="42" fill="#14B8A6" opacity="0.25"/>
+  <path d="M220 178v44M198 200h44" stroke="#5EEAD4" stroke-width="8" stroke-linecap="round"/>
+  <rect x="420" y="120" width="300" height="24" rx="12" fill="#FFFFFF" opacity="0.08"/>
+  <rect x="420" y="170" width="240" height="16" rx="8" fill="#FFFFFF" opacity="0.06"/>
+  <rect x="420" y="210" width="280" height="16" rx="8" fill="#FFFFFF" opacity="0.06"/>
+  <circle cx="150" cy="330" r="28" fill="#1B6BB0" opacity="0.5"/>
+  <circle cx="220" cy="330" r="28" fill="#14B8A6" opacity="0.45"/>
+  <circle cx="290" cy="330" r="28" fill="#1B6BB0" opacity="0.4"/>
+  <rect x="500" y="280" width="180" height="110" rx="14" fill="#12324A" stroke="#14B8A6" stroke-width="2" opacity="0.8"/>
+  <rect x="520" y="305" width="140" height="10" rx="5" fill="#14B8A6" opacity="0.5"/>
+  <rect x="520" y="330" width="100" height="10" rx="5" fill="#FFFFFF" opacity="0.15"/>
+</svg>
